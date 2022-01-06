@@ -6,7 +6,8 @@ describe("Course", () => {
     it("should be able to add lectures to modules", () => {
         const module = new Module("Fundamentals")
         const lecture: Lecture = {
-            description: "Branching"
+            description: "Branching",
+            videoUrl: "https://youtube.com/1234"
         }
 
         module.add(lecture)
@@ -18,7 +19,8 @@ describe("Course", () => {
             "Continuous Delivery and DevOps with Azure DevOps: Source Control with Git")
         const module = new Module("Fundamentals")
         const lecture: Lecture = {
-            description: "Branching"
+            description: "Branching",
+            videoUrl: "https://youtube.com/1234"
         }
 
         module.add(lecture)
