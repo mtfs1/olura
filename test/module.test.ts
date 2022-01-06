@@ -33,5 +33,22 @@ describe("Module", () => {
         expect(module.includes(lecture)).toBeTruthy()
         expect(module.numberOfLectures).toBe(1)
     })
-    
+
+    it("should be able to rearrange lectures order", () => {
+        const module = new Module("Fundamentals")
+        
+        const lecture1 = new Lecture("Branching","https://youtube.com/branching")
+        const lecture2 = new Lecture("Commiting","https://youtube.com/commiting")
+        const lecture3 = new Lecture("Pushing","https://youtube.com/pushing")
+        
+        module.add(lecture1)
+        module.add(lecture2)
+        module.add(lecture3)
+
+        module.move(lecture1, 3)
+        expect(module.position(lecture2)).toBe(1)
+        expect(module.position(lecture3)).toBe(2)
+        expect(module.position(lecture1)).toBe(3)
+    })
+
 })
