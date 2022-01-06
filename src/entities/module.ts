@@ -1,8 +1,8 @@
 import Lecture from "./lecture"
 
 class Module {
-    public lectures: Lecture[] = []
-    public name: string
+    private readonly lectures: Lecture[] = []
+    private name: string
 
     constructor(name: string) {
         this.name = name       
@@ -10,6 +10,10 @@ class Module {
 
     add(lecture: Lecture) {
         this.lectures.push(lecture)
+    }
+
+    includes(lecture: Lecture): boolean {
+        return this.lectures.includes(lecture)
     }
 }
 

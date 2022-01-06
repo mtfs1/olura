@@ -1,9 +1,9 @@
 import Module from "./module"
 
 class Course {
-    public modules: Module[] = []
-    public reference: string
-    public description: string
+    private readonly modules: Module[] = []
+    private reference: string
+    private description: string
 
     constructor(reference: string, description: string) {
         this.reference = reference
@@ -12,6 +12,10 @@ class Course {
 
     add(module: Module) {
         this.modules.push(module)
+    }
+
+    includes(module: Module): boolean {
+        return this.modules.includes(module)
     }
 }
 
