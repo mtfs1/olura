@@ -9,11 +9,16 @@ class Module {
     }
 
     add(lecture: Lecture) {
-        this.lectures.push(lecture)
+        if (!this.includes(lecture))
+            this.lectures.push(lecture)
     }
 
     includes(lecture: Lecture): boolean {
-        return this.lectures.includes(lecture)
+        return this.lectures.some(elm => elm.equals(lecture))
+    }
+
+    get numberOfLectures(): number {
+        return this.lectures.length;
     }
 }
 

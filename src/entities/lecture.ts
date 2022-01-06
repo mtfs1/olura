@@ -6,6 +6,16 @@ class lecture {
         this.description = description
         this.videoUrl = videoUrl
     }
+
+    equals(otherLecture: lecture): boolean {
+        if (this.description != otherLecture.description)
+            return false
+        
+        if (this.videoUrl != otherLecture.videoUrl)
+            return false
+
+        return true
+    }
 }
 
 export default lecture
