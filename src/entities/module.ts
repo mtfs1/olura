@@ -21,6 +21,24 @@ class Module {
     get numberOfLectures(): number {
         return this.lectures.length;
     }
+
+    move(lecture: Lecture, to: number) {
+        const from = this.position(lecture)
+
+        if (from == -1  || to > this.lectures.length || to <= 0)
+            return
+
+        this.lectures.splice(to - 1, 0, this.lectures.splice(from - 1, 1)[0])
+    }
+
+    position(lecture: Lecture): number {
+        const lectureInModule = this.lectures.find(elm => elm.equals(lecture))
+
+        if (!lectureInModule)
+            return -1
+
+        return this.lectures.indexOf(lectureInModule) + 1
+    }
 }
 
 export default Module
