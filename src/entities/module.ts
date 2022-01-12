@@ -2,7 +2,7 @@ import Lecture from "./lecture"
 
 class Module {
     private readonly lectures: Lecture[] = []
-    private name: string
+    name: string
 
     constructor(name: string) {
         this.name = name       
