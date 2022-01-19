@@ -90,4 +90,37 @@ describe("Course", () => {
         expect(course.includes(module2)).toBeFalsy()
         expect(course.numberOfModules).toBe(1)
     })
+
+    it("should be able to move a lecture through different courses", () => {
+        const course = new Course("azure-devops", 
+            "Continuous Delivery and DevOps with Azure DevOps: Source Control with Git")
+
+        const module1 = new Module("Fundamentals")
+        course.add(module1)
+
+        const module2 = new Module("Couse Overview")
+        course.add(module2)
+
+        const module3 = new Module("Source Control With Git")
+        course.add(module3)
+
+        const lecture1 = new Lecture("Introduction", "https://youtube.com/introduction")
+        const lecture2 = new Lecture("Commiting", "https://youtube.com/commiting")
+        const lecture3 = new Lecture("Branchng", "https://youtube.com/branching")
+        const lecture4 = new Lecture("Merging", "https://youtube.com/merging")
+
+        module1.add(lecture1)
+        module3.add(lecture2)
+        module3.add(lecture3)
+        module3.add(lecture4)
+
+        course.moveLecture(lecture1, module1, module3, 2)
+
+        expect(module1.numberOfLectures).toBe(0)
+        expect(module3.position(lecture2)).toBe(1)
+        expect(module3.position(lecture1)).toBe(2)
+        expect(module3.position(lecture3)).toBe(3)
+        expect(module3.position(lecture4)).toBe(4)
+    })
+
 })
