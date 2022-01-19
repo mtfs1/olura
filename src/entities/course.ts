@@ -10,8 +10,13 @@ class Course {
         this.description = description
     }
 
+    get numberOfModules(): number {
+        return this.modules.length
+    }
+
     add(module: Module) {
-        this.modules.push(module)
+        if (!this.modules.some(elm => elm.name == module.name))
+            this.modules.push(module)
     }
 
     includes(module: Module): boolean {

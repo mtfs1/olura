@@ -9,8 +9,7 @@ class Module {
     }
 
     add(lecture: Lecture) {
-        if (!this.lectures.some(
-                elm => elm.description == lecture.description))
+        if (!this.lectures.some(elm => elm.description == lecture.description))
             this.lectures.push(lecture)
     }
 
