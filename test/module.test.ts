@@ -60,4 +60,16 @@ describe("Module", () => {
 
         expect(module.numberOfLectures).toBe(0)
     })
+
+    it("should handle trying to remove an unexisting lecture", () => {
+        const module = new Module("Fundamentals")
+        const lecture1 = new Lecture("branching", "https://youtube.com/branching")
+        const lecture2 = new Lecture("commiting", "https://youtube.com/commiting")
+
+        module.add(lecture2)
+        module.remove(lecture1)
+
+        expect(module.numberOfLectures).toBe(1)
+    })
+
 })
