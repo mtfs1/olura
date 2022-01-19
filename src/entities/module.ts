@@ -19,6 +19,10 @@ class Module {
 
     remove(lecture: Lecture) {
         const positionInArray = this.position(lecture) - 1
+
+        if (positionInArray < 0)
+            return
+        
         this.lectures.splice(positionInArray, 1)
     }
 
