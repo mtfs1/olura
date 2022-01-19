@@ -8,17 +8,22 @@ class Module {
         this.name = name       
     }
 
+    get numberOfLectures(): number {
+        return this.lectures.length;
+    }
+
     add(lecture: Lecture) {
         if (!this.lectures.some(elm => elm.description == lecture.description))
             this.lectures.push(lecture)
     }
 
-    includes(lecture: Lecture): boolean {
-        return this.lectures.some(elm => elm.equals(lecture))
+    remove(lecture: Lecture) {
+        const positionInArray = this.position(lecture) - 1
+        this.lectures.splice(positionInArray, 1)
     }
 
-    get numberOfLectures(): number {
-        return this.lectures.length;
+    includes(lecture: Lecture): boolean {
+        return this.lectures.some(elm => elm.equals(lecture))
     }
 
     move(lecture: Lecture, to: number) {
