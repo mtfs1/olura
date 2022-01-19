@@ -1,3 +1,4 @@
+import lecture from "./lecture"
 import Module from "./module"
 
 class Course {
@@ -39,6 +40,17 @@ class Course {
             return -1
 
         return this.modules.indexOf(moduleInCourse) + 1
+    }
+
+    moveLecture(lecture: lecture, fromModule: Module, toModule: Module, 
+            position: number) {
+
+        if (!fromModule.includes(lecture))
+            return;
+
+        fromModule.remove(lecture)
+        toModule.add(lecture)
+        toModule.move(lecture, position)
     }
 }
 
