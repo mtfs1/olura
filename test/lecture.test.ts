@@ -20,4 +20,5 @@ describe("Lecture", () => {
 
         expect(lecture.includes(branchingPdf)).not.toBeTruthy()
     })
+
 })
